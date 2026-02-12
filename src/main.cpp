@@ -6,14 +6,36 @@
 
 #include "base_conv.h"
 
-int main() {
+int main()
+{
     bn::core::init();
+    // int num = 86;
+
+    int bin_num = 0b10110011;
+    int mask = 0b11101001;
+    int added = bin_num | mask;
+
+    int color = 0b0'00000'00000'11111;
+    int blue = 6 << 10;
+    int green = 15 << 5;
+    int red = 20;
+
+    color = blue | green | red;
+
+    BN_LOG(to_string_base(blue, 2));
+    BN_LOG(to_string_base(green, 2));
+    BN_LOG(to_string_base(red, 2));
+    BN_LOG(to_string_base(color, 2));
+    // BN_LOG(bin_num);
+    // BN_LOG(num);
+    BN_LOG(to_string_base(added, 2));
 
     BN_LOG("Hey!");
 
-    bn::backdrop::set_color(bn::color());
+    bn::backdrop::set_color(bn::color(color));
 
-    while(true) {
+    while (true)
+    {
         bn::core::update();
     }
 }
