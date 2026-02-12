@@ -9,11 +9,40 @@
 int main() {
     bn::core::init();
 
-    BN_LOG("Hey!");
+    int bin_num = 0b10100010;
 
-    bn::backdrop::set_color(bn::color());
+    int mask = 0b10101110;
+
+    int anded = bin_num & mask;
+
+    int ored = bin_num | mask;
+
+    BN_LOG(to_string_base(anded, 2));
+    
+    BN_LOG(to_string_base(ored, 2));
+
+    //int num = 86;
+
+    //BN_LOG(bin_num);
+
+    //BN_LOG(to_string_base(num, 2));
+
+   // BN_LOG("Hey!");
+
+    int color = 0;//0b0'00000'00000'11111;
+    int blue = 6 << 10; 
+    int green = 15 << 5;
+    int red = 20;
+    BN_LOG(to_string_base(blue, 2));
+    BN_LOG(to_string_base(green, 2));
+    BN_LOG(to_string_base(red, 2));
+
+    color = blue | green | red;
+
+    bn::backdrop::set_color(bn::color(color));
 
     while(true) {
         bn::core::update();
     }
+
 }
