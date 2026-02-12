@@ -9,9 +9,34 @@
 int main() {
     bn::core::init();
 
+    int bin_num = 0b110110010;
+    int mask =    0b100100101;
+    int anded = bin_num & mask;
+    int ored = bin_num | mask;
+
+    int num = 86;
+
+    BN_LOG(to_string_base(anded, 2));
+    BN_LOG(to_string_base(ored, 2));
+
+    BN_LOG(bin_num);
+
+    BN_LOG(to_string_base(num, 2));
+
     BN_LOG("Hey!");
 
-    bn::backdrop::set_color(bn::color());
+    int color = 0; //0b0'11111'00000'11111;
+    int blue = 9<<10;
+    int green = 4<<5;
+    int red = 2;
+
+    color = blue | green | red;
+
+    BN_LOG(to_string_base(blue, 2));
+    BN_LOG(to_string_base(green, 2));
+    BN_LOG(to_string_base(red, 2));
+
+    bn::backdrop::set_color(bn::color(color));
 
     while(true) {
         bn::core::update();
