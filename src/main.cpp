@@ -9,6 +9,9 @@
 int main() {
     bn::core::init();
 
+    int num = 29;
+    BN_LOG(to_string_base(num, 2));
+
     BN_LOG("Hey!");
 
     bn::backdrop::set_color(bn::color());
