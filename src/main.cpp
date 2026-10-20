@@ -14,9 +14,42 @@ int main() {
 
     bn::sprite_ptr face = bn::sprite_items::face.create_sprite();
 
-    BN_LOG("Hey!");
+    // int number = 7;
+    // int other_number = 0b10110;
+    // int mask = 0b00010;
+    // int result = other_number & mask;
 
-    bn::backdrop::set_color(bn::color());
+    // result = result >>1;
+    
+    // if(result == 1){
+    //     // other number hasa  1 at position 1
+    //     BN_LOG("Has a one at position 1");
+    // } else {
+    //     BN_LOG("Does NOT have a one at position 1");
+    // }
+
+    // BN_LOG(to_string_base(result,2));
+
+    // BN_LOG(to_string_base(number,2));
+    // if(number == other_number){
+    //     BN_LOG("equal");
+    // } else {
+    //     BN_LOG("not equal");
+    // }
+
+    // BN_LOG("Hey!");
+
+    int blue = 6;//00110
+    int green = 15;//01111
+    int red = 20;
+    //0 bbbbbgggggrrrrr
+    int blue_bits = blue << 10;
+    int green_bits = green << 5;
+    int red_bits = red;
+    int color = blue_bits | green_bits | red_bits;
+
+
+    bn::backdrop::set_color(bn::color(color));
 
     while(true) {
         bn::core::update();
