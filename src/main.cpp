@@ -14,9 +14,30 @@ int main() {
 
     bn::sprite_ptr face = bn::sprite_items::face.create_sprite();
 
-    BN_LOG("Hey!");
+    int number = 7;
+    int other_number = 0b10110;
 
-    bn::backdrop::set_color(bn::color());
+    int mask = 0b00010;
+    int result = other_number & mask;
+
+    BN_LOG(to_string_base(result, 2));
+
+    // if (number == other_number) {
+    //     BN_LOG("equal");
+    // } else {
+    //     BN_LOG("not equal");
+    // }
+
+    int blue = 6;
+    int green = 15;
+    int red = 20;
+
+    int blue_bits = blue << 10;
+    int green_bits = green << 5;
+    int red_bits = red;
+
+    int color = blue_bits | green_bits | red_bits;
+    bn::backdrop::set_color(bn::color(color));
 
     while(true) {
         bn::core::update();
