@@ -14,7 +14,34 @@ int main() {
 
     bn::sprite_ptr face = bn::sprite_items::face.create_sprite();
 
-    BN_LOG("Hey!");
+    // int number = 7;
+    // int other_number = 0b10110;
+
+    // int mask = 0b00010;
+
+    // int result = other_number & mask; 
+
+    // BN_LOG(to_string_base(number, 2));
+
+    // if (result == 1) {
+    //     BN_LOG("other number as a 1 at position 1");
+    // } else {
+    //     BN_LOG("other number has a 0 at position 1")
+    // }
+
+    // BN_LOG("Hey!");
+
+    int blue = 6; 
+    int green = 15; // 01111
+    int red = 20; 
+
+    int blue_bits = blue << 10; 
+    int green_bits = green << 5;
+    int red_bits = red;
+
+    int color = blue_bits | green_bits | red_bits; 
+
+    bn::backdrop::set_color(bn::color(color));
 
     bn::backdrop::set_color(bn::color());
 
