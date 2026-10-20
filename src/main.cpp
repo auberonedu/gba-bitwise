@@ -9,16 +9,26 @@
 
 #include "bn_sprite_items_face.h"
 
-int main() {
+int main()
+{
     bn::core::init();
 
     bn::sprite_ptr face = bn::sprite_items::face.create_sprite();
 
-    BN_LOG("Hey!");
+    int blue = 6;   // 0b00110
+    int green = 15; // 0b01111
+    int red = 20;   // 0b10100
 
-    bn::backdrop::set_color(bn::color());
+    int blue_bits = blue << 10;
+    int green_bits = green << 5;
+    int red_bits = red;
 
-    while(true) {
+    int color = blue_bits | green_bits | red_bits;
+
+    bn::backdrop::set_color(bn::color(color));
+
+    while (true)
+    {
         bn::core::update();
     }
 }
