@@ -14,9 +14,17 @@ int main() {
 
     bn::sprite_ptr face = bn::sprite_items::face.create_sprite();
 
-    BN_LOG("Hey!");
+    int blue = 6; // 0b 00110
+    int green = 15; // 0b 01111
+    int red = 20; // // 0b 10100
+    // 0b bbbbbgggggrrrrr
+    int blue_bits = blue << 10;  // 001100000000000
+    int green_bits = green << 5; // 000000111100000
+    int red_bits = red;          // 000000000010000
 
-    bn::backdrop::set_color(bn::color());
+    int color = blue_bits | green_bits | red_bits;
+
+    bn::backdrop::set_color(bn::color(color));
 
     while(true) {
         bn::core::update();
